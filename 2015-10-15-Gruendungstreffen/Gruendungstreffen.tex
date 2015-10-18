@@ -1,0 +1,242 @@
+% Disclaimer % 
+% Bei Verwendung von GIT kann auf den gesamten Quellcode zugegriffen werden
+% Daher NIEMALS vertauliche Notizen in den Quellcode schreiben!
+
+%%%%%%%%%%%%%%%%%%%%Präämbel%%%%%%%%%%%%%%%%%%%%%
+\documentclass[a4paper,12pt,oneside]{scrartcl} % Klasse von KOMA
+\usepackage{scrpage2} % für Kopf- und Fußzeile, kommt aus KOMA
+\usepackage[ngerman]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+%XeLaTeX, ermöglicht UTF und TrueType-Fonts
+%\usepackage{xltxtra} % Funktionen für XeLaTeX
+%\usepackage{polyglossia} % Lokalisierung
+\usepackage{totpages}% Gesamtseiten
+\usepackage{colortbl}% Farbe fuer Tabellen
+\usepackage{xcolor}% Farbpaket
+%\setdefaultlanguage{german}
+
+% Corporate-Identity %
+%\setmainfont[Mapping=tex-text]{Julianna}
+\definecolor{forumsorange}{HTML}{F0910B}
+\definecolor{forumsgrau}{HTML}{9C9D9F}
+\blendcolors{!75}
+
+%Seitenränder, etc.
+\usepackage[]{geometry}
+\geometry{a4paper, top=12.5mm, left=25mm, right=25mm, bottom=1.25cm}
+
+\usepackage{eurosym} % immer \officialeuro benutzen, denn € fehlt in Julianna
+\setlength{\parindent}{0pt}
+
+% Kop- und Fußzeile
+\pagestyle{scrheadings}
+\setkomafont{pageheadfoot}{\normalfont\scriptsize}
+\clearscrheadfoot %Entfernt die automatische Seitennummerierung
+%Fuß
+\ifoot{
+\rule{\textwidth}{0.2pt}
+\textbf{ML-KA} Hochschulgruppe für Maschinelles Lernen
+
+%%%% Zentrierte Seitennummerierung am Seitenende %%%%
+\begin{center}
+Seite \pagemark \ von \ref{TotPages}\\
+\sitzgsNR . Treffen
+\end{center}
+%%%%---------------------------------------------%%%%
+}
+
+%Kopf und Logo
+\chead{
+\begin{center}
+{\LARGE \textbf{ML-KA}}\\
+{{\normalsize Hochschulgruppe für Maschinelles Lernen}}
+\end{center}
+}
+
+% Höhe von Kopf- und Fußzeile anpassen
+\setlength{\headheight}{90pt}
+\setlength{\textheight}{600pt}
+\setlength{\footskip}{30mm}
+
+\setkomafont{sectioning}{\rmfamily \bfseries} 
+\renewcommand{\thesection}{TOP \arabic{section}} % TOP Ueberschrift
+\newcommand*{\fs}[2]{#1\textsubscript{#2}} % Befehl für Fachsemester:  \fs{1,...n: Semesterzahl}{B, M oder MB}
+
+%%% Uebersicht für Abstimmungsergebnisse %%%
+% Es werden 5 Argumente benötigt
+% SYNTAX \abstimmung{Titel der Abstimmung}{Anzahl insg.}{Dafür}{Dagegen}{Enthaltung}
+\newcommand*{\abstimmung}[5]{
+%\begin{center}
+\begin{tabular}[c]{>{\columncolor{forumsorange}}c% 
+>{\columncolor{forumsorange}}c%
+>{\columncolor{forumsorange}}c%
+>{\columncolor{forumsorange}}c}
+\multicolumn{4}{>{\columncolor{forumsgrau}}c}{#1} \\
+Stimmen insgesamt & Dafür & Dagegen & Enthaltung \\
+#2 & #3 & #4 & #5 \\
+\end{tabular}
+%\end{center}
+}
+%%% ------------------------------------ %%%
+
+%%% Uebersicht fuer Personenwahlen %%%
+% Fuer <=7 Wahlvorschlaege
+% SYNTAX \wahl{Wahltitel/Abstimmungstitel}{Name Kandidat 1 & Ja Stimmen & Nein Stimmen & Enthaltungen\\}...{Name Wahlsieger}
+\newcommand*{\wahl}[9]{
+%\begin{center}
+\begin{tabular}[c]{>{\columncolor{forumsorange}}c% 
+>{\columncolor{forumsorange}}c%
+>{\columncolor{forumsorange}}c%
+>{\columncolor{forumsorange}}c}
+\multicolumn{4}{>{\columncolor{forumsgrau}}c}{#1}\\
+Name & Ja & Nein & Enthaltung\\
+#2
+#3
+#4
+#5
+#6
+#7
+#8
+\multicolumn{4}{>{\columncolor{forumsgrau}}c}{Damit ist #9 gewählt.}
+\end{tabular}
+\end{center}
+}
+%%% ------------------------------ %%%
+
+%!!!!!!!!!!!!!!!!!!!!!ÄNDERN!!!!!!!!!!!!!!!!!!!!!
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\sitzgsNR}{1} % Nummer der Sitzung
+\newcommand{\sitzgsLtr}{Martin Thoma} % Sitzungsleiter
+\newcommand{\sitzgsPrtk}{Johannes Reiß} % Protokollant
+\newcommand{\sitzgsDate}{15.10.2015}
+\newcommand{\sitzgsOrt}{Donnerstag, den \sitzgsDate , 15:00 Uhr, Raum 167 Geb. 20.20} % Zeit und Ort, der Sitzung
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Wieder nicht ändern!
+\begin{document}
+%\begin{flushright}
+% \today
+%\end{flushright}
+\rule{\textwidth}{1pt}
+
+% Titelzeile
+\begin{center}
+ \textbf{\Large{Protokoll des \sitzgsNR . Treffen am \sitzgsDate}}\\
+ Gründungstreffen - Mitgliederversammlung
+\end{center}
+
+\begin{tabular}{l l}
+ \textbf{Zeit \& Ort:}	& \sitzgsOrt	\\
+ \textbf{Redeleitung:}	& \sitzgsLtr	\\
+ \textbf{Protokoll:}	& \sitzgsPrtk	\\
+\end{tabular}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\rule{\textwidth}{1pt}
+
+%%%%%%%%%%%%%%%%%%%%%%TOPS%%%%%%%%%%%%%%%%%%%%%%%
+Begrüßung durch Martin Thoma und kurze Vorstellung der Tagesordnung.
+
+\section{Name und Satzung} % Erster TOP, Nummerierung erfolgt natürlich automatisch
+\subsection*{Name}
+Es findet eine Diskussion des Namens statt.
+Wünschenswert wäre wenn das KIT als Gründungsort mit einfließen könnte.\\
+
+Es stehen die folgenden Namen zur Abstimmung.
+\begin{itemize}
+\item Machine Learning Karlsruhe
+\item ML@KIT
+\item ML-KIT
+\item Forum Maschinelles Lernen
+\end{itemize}
+Machine Learning Karlsruhe wird einstimmig angenommen.\\
+Weiter muss ein Kürzel für den Namen bestimmt werden. Zur Wahl stehen:
+\begin{itemize}
+\item ML-KIT
+\item ML-KA
+\item MLKA
+\end{itemize}
+ML-KA wird einstimmig angenommen.
+\subsection*{Satzung}
+Martin stellt die Satzung vor. Es findet eine Diskussion zu den einzelen Paragraphen statt.
+\begin{description}
+\item[§3 Abs. 4]Ergänzung um \glqq Ein Wiedereintritt ist in diesem Fall jederzeit möglich.\grqq\ 
+\item[§5]Es wird ergänzt bzw. geändert: \glqq Der Vorstand wird für ein Jahr gewählt; er besteht aus drei Mitgliedern. Der Vorstand wählt aus seinem Kreis einen Vorsitzenden und einen Kassenwart. Diese Wahl ist zu protokollieren und den Mitgliedern zugänglich zu machen.\grqq\ \\
+\glqq Die Mitgliederversammlung kann den Vorstand absetzen und einen Übergangsvorstand wählen. Dieser bleibt bis zur nächsten regulären Vorstandswahl im Amt."
+\item[§6 Nr. 3]Ergänzung um, \glqq Außerordentliche Mitgliederversammlungen können von mindestens fünf Mitgliedern einberufen werden.\grqq
+\end{description} 
+Die Satzung wird mit den genannten Änderungen einstimmig angenommen.
+
+\section{Mitgliedsanträge}
+Es werden Mitgliedsanträge zum Ausfüllen ausgeteilt.
+\section{Wahl des Vorstands}
+Im Vorfeld haben sich bereits Kandidaten gemeldet. Es wird nach weiteren Kandidaten gefragt.\\
+
+Es müssen drei Kandidaten gewählt werden. Als Wahlhelfer stellen sich Clemens Wolff und Thomas Hummel zur Verfügung.\\
+Folgende Kandidaten stehen zur Wahl. (Ergebnisse der Abstimmung in Klammern)
+\begin{itemize}
+\item Marvin Teichmann (11)
+\item Martin Thoma (11)
+\item Marvin Schweizer (10)
+\end{itemize}
+Bei einer Enthaltung sind damit die drei zur Wahl stehenden Kandidaten gewählt.\\
+Sie nehmen die Wahl an.
+
+\section{Mitgliedsbeitrag}
+Die Frage, ob ein Mitgliedsbeitrag erhoben werden soll wird diskutiert. Es wird über die Vor- und Nachteile eines Mitgliedsbeitrags gesprochen.\\
+\emph{Edouard verlässt die Sitzung um 16:30 Uhr.}\\
+
+Es wird in zwei Durchgängen über die Festlegung eines Mitgliedsbeitrags abgestimmt.\\
+ 
+Wer ist dafür, dass im ersten Semester kein Mitgliedsbeitrag erhoben wird? (Ergebnisse der Abstimmung in Klammern)
+\begin{itemize}
+\item Ja (9)
+\item Nein (1)
+\item Enthaltung (0)
+\end{itemize}
+Damit wird im ersten Semester kein Mitgliedsbeitrag erhoben.\\
+
+Wie viel soll der Mitgliedsbeitrag nach dem ersten Semester betragen? (Ergebnisse der Abstimmung in Klammern)
+\begin{itemize}
+\item 0\officialeuro\ (6)
+\item 2\officialeuro\ (2)
+\item 5\officialeuro\ (1)
+\item Enthaltung (1)
+\end{itemize}
+Damit wird auch der Mitgliedsbeitrag im zweiten Semester ausgesetzt.
+
+\section{Ankündigungen}
+Das erste Treffen mit einer Einführung soll am 28.10.2015 um 19:15 Uhr stattfinden.\\
+Es wurde ein erster Kontakt mit einer interessierten Firma hergestellt.\\
+Marvin Teichmann kündigt eine Paper-Discussion Group über \glqq Pixelwise-Classification\grqq\ an. Interessierte können sich melden.
+
+\bigskip\textbf{Ende der Sitzung: 16:43 Uhr}
+\begin{flushright}
+Karlsruhe, den \today
+\end{flushright}
+
+\cleardoublepage
+\newpage
+%
+\renewcommand{\thesection}{Anhang \arabic{section}} \setcounter{section}{0}
+\section{Anwesenheitsliste}
+\begin{tabular}{l l l}
+\textbf{Name, Vorname}	& \textbf{Hochschule}	&  \textbf{Mitglied?}	\\
+Thoma, Martin & KIT & ja \\
+Teichmann, Marvin & KIT & ja \\
+Hummel, Thomas & KIT & ja \\
+Reiß, Johannes & KIT & ja \\
+Schweizer, Marvin & KIT & ja \\
+Stumpp, Matthias & KIT & ja \\
+Fuhrmann, Tino & KIT & ja \\
+Haas, Benedikt & KIT & ja \\
+Plappert, Matthias & KIT & ja \\
+Fouché, Edouard & KIT & ja \\
+Wolff, Clemens & KIT & ja \\
+\end{tabular}
+
+
+\end{document}
