@@ -21,7 +21,7 @@ Fahrzeugkonfigurationen verwendet.
 
 ## Kurzinfos
 
-* Martin Teichmann berichtet von der Paper Discussion Group (PDG)
+* Marvin Teichmann berichtet von der Paper Discussion Group (PDG)
 
 ## Weiteres
 
