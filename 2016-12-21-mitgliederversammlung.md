@@ -1,7 +1,7 @@
 ## Meta
 * Datum: 21.12.2016
-* Ort: Karlsruhe, TODO
-* Beginn: 19:00
+* Ort: Karlsruhe, Launchpad ([Rintheimer Str. 15](https://goo.gl/maps/PKaMZPT23jL2))
+* Beginn: 17:30
 * Ende: TODO
 * Teilnehmer: TODO Mitglieder, unter anderem
     * Thoma, Martin
